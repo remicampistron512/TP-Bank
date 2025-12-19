@@ -1,12 +1,21 @@
 package bank.models;
 
 public class User {
-    String firstName;
-    String lastName;
+    private Long userId;
+    private String firstName;
+    private String lastName;
 
-    public User(String firstName, String lastName) {
+    public User(Long userId, String firstName, String lastName) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void  setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
