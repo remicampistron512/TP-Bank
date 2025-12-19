@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Account {
-    String accountNumber;
-    Customer accountOwner;
-    BigDecimal balance;
-    BigDecimal overdraftLimit;
-    BigDecimal dailyWithdrawalLimit;
-    List<Operation> operations;
+    private String accountNumber;
+    private Customer accountOwner;
+    private BigDecimal balance;
+    private BigDecimal overdraftLimit;
+    private BigDecimal dailyWithdrawalLimit;
+    private List<Operation> operations;
 
     public Account(String accountNumber, Customer accountOwner, BigDecimal balance, BigDecimal overdraftLimit, BigDecimal dailyWithdrawalLimit, List<Operation> operations) {
         this.accountNumber = accountNumber;
