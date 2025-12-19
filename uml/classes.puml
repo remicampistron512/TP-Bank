@@ -1,0 +1,53 @@
+@startuml
+
+enum OperationType {
+  DEPOSIT
+  WITHDRAWAL
+  TRANSFER
+}
+
+enum OperationStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+class Account {
+    - accountNumber : String
+    - accountOwner : Customer
+    - balance : BigDecimal
+    - overdraftLimit : BigDecimal
+    - dailyWithdrawalLimit : BigDecimal
+    - operations : List<Operation>
+
+     + deposit(amount : BigDecimal) : void
+     + withdraw(amount : BigDecimal) : void
+     + transferTo(target : Account, amount : BigDecimal) : void
+     + getHistory() : List<Operation>
+
+}
+
+class Operation {
+    - amount : BigDecimal
+    - type : Enum
+    - status : Enum
+}
+
+class User {
+    - firstName : String
+    - lastName : String
+
+}
+
+class Customer
+
+class Advisor
+
+
+User <|-- Customer
+User <|-- Advisor
+
+Customer "1" -- "0..*" Account : owns >
+Account "1" o-- "0..*" Operation : history >
+
+@enduml

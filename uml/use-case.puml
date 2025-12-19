@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+title TP Bank - Use Case Diagram
+
+actor Advisor
+actor Customer as "Account Owner"
+
+rectangle "Banking Console System" {
+  usecase "Create account" as UC_Create
+  usecase "View account" as UC_View
+  usecase "Make operation" as UC_Op
+  usecase "Deposit" as UC_Deposit
+  usecase "Withdraw" as UC_Withdraw
+  usecase "Transfer" as UC_Transfer
+  usecase "View operation history" as UC_History
+}
+
+Advisor --> UC_Create
+Advisor --> UC_View
+Advisor --> UC_Op
+Advisor --> UC_History
+
+
+UC_Op ..> UC_Deposit  : <<include>>
+UC_Op ..> UC_Withdraw : <<include>>
+UC_Op ..> UC_Transfer : <<include>>
+
+@enduml
