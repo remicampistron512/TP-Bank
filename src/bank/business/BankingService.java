@@ -15,7 +15,9 @@ import java.util.List;
  */
 public class BankingService {
 
-  // Customers
+
+
+    // Customers
   public Customer createCustomer(String firstName, String lastName) {
     CustomerDao customerDao = new CustomerDao();
     return customerDao.createCustomer(firstName,lastName);
@@ -25,6 +27,11 @@ public class BankingService {
     CustomerDao customerDao = new CustomerDao();
     return customerDao.findAll();
   }
+
+    public List<Account> listAccounts() {
+        AccountDao accountDao = new AccountDao();
+        return accountDao.findAll();
+    }
 
   // Accounts
   public void createAccountForCustomer(Customer customer,
@@ -53,4 +60,19 @@ public class BankingService {
   public List<Operation> getHistory(String accountNumber) {
     throw new UnsupportedOperationException("Not implemented");
   }
+
+    public Account getAccountById(int accountId) {
+        AccountDao accountDao = new AccountDao();
+        return accountDao.findById(accountId);
+    }
+
+    public Boolean deposit(Account account, BigDecimal amount) {
+        AccountDao accountDao = new AccountDao();
+        return accountDao.deposit(account,amount);
+    }
+
+    public Boolean transfer(BigDecimal amount,Account sourceAccount,Account targetAccount){
+        AccountDao accountDao = new AccountDao();
+        return accountDao.transfer(amount,sourceAccount,targetAccount);
+    }
 }

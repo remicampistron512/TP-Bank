@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Account {
+
+    private long id;
     private String accountNumber;
     private Customer accountOwner;
     private BigDecimal balance;
@@ -18,6 +20,25 @@ public class Account {
         this.overdraftLimit = overdraftLimit;
         this.dailyWithdrawalLimit = dailyWithdrawalLimit;
         this.operations = operations;
+    }
+
+    public Account(long id,String accountNumber, Customer accountOwner, BigDecimal balance, BigDecimal overdraftLimit, BigDecimal dailyWithdrawalLimit) {
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.accountOwner = accountOwner;
+        this.balance = balance;
+        this.overdraftLimit = overdraftLimit;
+        this.dailyWithdrawalLimit = dailyWithdrawalLimit;
+
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getAccountNumber() {
